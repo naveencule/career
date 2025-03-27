@@ -1,0 +1,38 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/search_complaint#about">
+  <table class="table table striped">
+    <tr><td></td>
+      <td align="right"><b>Date</b></td>
+      <td>
+        <input type="date" name="textfield" class="form-control" required value="{{ dt }}" />
+      </td>
+      <td align="left">
+        <input type="submit" name="Submit" value="Search" class="btn btn-warning"/>
+      </td><td></td>
+    </tr>
+    <tr class="table table-dark">
+      <td align="center">Sl no </td>
+      <td align="center">Name</td>
+      <td align="center">Complaint</td>
+      <td align="center">Date</td>
+      <td align="center">&nbsp;Reply</td>
+    </tr>
+      {% for i in comp %}
+    <tr>
+      <td align="center">&nbsp;{{ forloop.counter }}</td>
+      <td align="center">&nbsp;{{ i.STUDENT.fname }}&nbsp;{{ i.STUDENT.lname }}</td>
+      <td align="center">{{ i.complaint}}</td>
+      <td align="center">{{ i.date}}</td>
+        <td align="center">{% if i.reply == 'pending' %}
+      <a href="send_reply/{{ i.id }}#about" class="btn btn-link">Reply</a>
+        {% else %}{{ i.reply }}
+        {% endif %}
+        </td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

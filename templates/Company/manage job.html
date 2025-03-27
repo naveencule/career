@@ -1,0 +1,36 @@
+{% extends 'companyindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table striped">
+
+    <tr class="table table-dark">
+      <td align="center">Sl no </td>
+      <td align="center">Name</td>
+      <td align="center">Details</td>
+      <td align="center">Qualification</td>
+      <td align="center">Last Date</td>
+      <td align="center">No of vaccancy</td>
+      <td align="center"></td>
+    </tr>
+      {% for i in val  %}
+    <tr>
+      <td align="center">{{ forloop.counter }}</td>
+      <td align="center">{{ i.name }}</td>
+      <td align="center">&nbsp;{{ i.details }}</td>
+      <td align="center">{{ i.qualification }}</td>
+      <td align="center">{{ i.last_date }}</td>
+      <td align="center">{{ i.no_of_vaccancy }}</td>
+      <td align="center"><p><a href="edit_job/{{ i.id }}#about" class="btn btn-success">&nbsp;&nbsp;Edit&nbsp;&nbsp;</a></p>
+      <p><a href="/delete_job/{{ i.id }}" class="btn btn-danger">Delete</a></p>
+      </td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="7"><div align="center"><a href="/add_job#about" class="btn btn-info">Add</a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

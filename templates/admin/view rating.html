@@ -1,0 +1,33 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="search_rating">
+  <table width="403" border="1">
+    <tr>
+      <td colspan="5">Date
+        <label>
+        <input type="date" name="textfield" />
+              </label>        <label>
+        <input type="submit" name="Submit" value="Search" />
+              </label></td>
+    </tr>
+    <tr>
+        <td align="center"><b>Sl no </b></td>
+      <td align="center"><b>Student</b></td>
+      <td align="center"><b>Rating</b></td>
+      <td align="center"><b>Date</b></td>
+    </tr>
+      {% for i in val2 %}
+
+    <tr>
+      <td align="center">{{ forloop.counter }}</td>
+      <td align="center">{{ i.STUDENT.fname }}{{ i.STUDENT.lname }}</td>
+      <td align="center">{{ i.rate }}</td>
+      <td align="center">{{ i.date }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

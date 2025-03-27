@@ -1,0 +1,40 @@
+{% extends 'companyindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table striped">
+
+    <tr class="table table-dark">
+        <td align="center"><b>SL NO</b> </td>
+      <td align="center"><b>Student</b></td>
+      <td align="center"><b>Job</b></td>
+      <td align="center"><b>Job Vaccancy</b> </td>
+      <td align="center"><b>Date</b></td>
+      <td align="center"><b>Resume</b></td>
+      <td align="center"><b>Score</b></td>
+      <td align="center">&nbsp;</td>
+
+    </tr>
+       {% for i in val %}
+    <tr>
+      <td align="center">{{ forloop.counter }}</td>
+      <td align="center">&nbsp;<img src="{{ i.APPLICATION.STUDENT.image.url }}" width="100" height="100"  /><br>{{ i.APPLICATION.STUDENT.fname }} {{ i.APPLICATION.STUDENT.lname }}</td>
+      <td align="center">&nbsp;{{ i.APPLICATION.VACCANCY.name }}</td>
+      <td align="center">{{ i.APPLICATION.VACCANCY.no_of_vaccancy }}</td>
+      <td align="center">{{ i.APPLICATION.date}}</td>
+        <td align="center"><a href="{{ i.resume.url }}" download>Download</a></td>
+        <td align="center">{{ i.score }}</td>
+
+      <td>
+          {% if i.APPLICATION.status == 'pending' %}<p><a href="accept_application/{{ i.APPLICATION.id }}" class="btn btn-success">Accept</a></p>
+      <p><a href="reject_application/{{ i.APPLICATION.id }}" class="btn btn-danger">Reject</a>
+          {% elif i.APPLICATION.status == 'accepted' %}<b> Accepted</b>
+      {% else %}
+     <b> Rejected</b>
+      {% endif %}</p></td>
+    </tr>
+        {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

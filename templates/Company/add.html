@@ -1,0 +1,41 @@
+{% extends 'companyindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/vacancy_add_action">
+  <table class="table table striped">
+    <tr>
+      <td><b>Name</b></td>
+      <td><label>
+        <input type="text" name="textfield" class="form-control" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Details</b></td>
+      <td><label>
+        <input type="text" name="textfield2" class="form-control" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>No of vaccancy</b></td>
+      <td><label>
+        <input type="text" name="textfield4" class="form-control" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Last Date </b></td>
+      <td><label>
+        <input type="date" name="textfield5" class="form-control" required/>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td colspan="2" align="center"><label>
+          <div >
+            <input type="submit" name="Submit" value="Add" class="btn btn-info"/>
+        </div>
+        </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

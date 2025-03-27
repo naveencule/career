@@ -1,0 +1,34 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/admin_search_feedback#about">
+  <table class="table table striped">
+    <tr><td></td>
+        <td align="right"><b>Date</b></td>
+        <td>
+      <input type="date" name="textfield" class="form-control" value="{{ dt }}" required/>
+        </td>        <td>
+        <input type="submit" name="Submit" value="Search" class="btn btn-warning"/>
+        </td><td></td>
+    </tr>
+    <tr class="table table-dark">
+        <td align="center"><b>Sl no</b> </td>
+        <td align="center"><b>Username</b></td>
+        <td align="center"><b>Feedback</b></td>
+        <td align="center"><b>Rating</b></td>
+        <td align="center"><b>Date</b></td>
+    </tr>
+       {% for i in val3 %}
+    <tr>
+      <td align="center">&nbsp;{{ forloop.counter }}</td>
+      <td align="center">{{ i.STUDENT.fname }}{{ i.STUDENT.lname }}</td>
+      <td align="center">&nbsp;{{ i.feedback }}</td>
+      <td align="center">&nbsp;{{ i.rate }}</td>
+      <td align="center">{{ i.date }}</td>
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

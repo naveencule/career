@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1">
+
+    <tr class="table table-dark">
+      <td>Sl no </td>
+      <td>Name</td>
+      <td>Details</td>
+      <td>No of vaccancies </td>
+      <td>Last Date </td>
+        <td></td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td rowspan="2">&nbsp;{{ forloop.counter }}</td>
+      <td rowspan="2">&nbsp;{{ i.name }}</td>
+      <td rowspan="2">&nbsp;{{ i.details }}</td>
+      <td rowspan="2">&nbsp;{{ i.no_of_vaccancy }}</td>
+      <td rowspan="2">{{ i.last_date  }}</td>
+      <td><a href="#">Edit</a></td>
+    </tr>
+    <tr>
+      <td><a href="/delete_vacancy/{{ i.id }}">Delete</a></td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="6"><div align="center"><a href="vacancy_add">Add</a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table striped">
+    <tr class="table table-dark">
+        <td align="center"><b>SL NO </b></td>
+        <td align="center">Courses</td></td>
+        <td align="center">Details</td></td>
+        <td align="center">Date</td></td>
+    </tr>
+        {% for i in val %}
+    <tr>
+      <td align="center">{{ forloop.counter }}</td>
+      <td align="center">{{ i.name }}&nbsp;</td>
+      <td align="center">{{ i.details }}&nbsp;</td>
+      <td align="center">{{ i.date }}</td>
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

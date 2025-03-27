@@ -1,0 +1,39 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="search_jdview#about">
+    <table class="table table striped">
+    <tr>
+        <td colspan="3" align="right"><b>Name</b></td>
+        <td>
+            <input type="text" name="textfield" value="{{ nm }}" class="form-control"/></td>
+         <td colspan="3" align="left"> <input type="submit" name="Submit" value="Search" class="btn btn-warning"/>
+        </td>
+    </tr>
+        <tr class="table table-dark">
+            <td align="center"><b>SL NO </b></td>
+            <td align="center"><b>Name</b></td>
+            <td align="center"><b>Details</b></td>
+            <td align="center"><b>Qualification</b></td>
+            <td align="center"><b>Company</b></td>
+            <td align="center"><b>No of vacancy</b></td>
+            <td align="center"><b>Last Date</b></td>
+{#      <td width="162">&nbsp;</td>#}
+    </tr>
+     {% for i in val  %}
+    <tr>
+      <td align="center">{{ forloop.counter }}</td>
+      <td align="center">&nbsp;{{ i.name }} </td>
+      <td align="center">{{ i.details }}</td>
+      <td align="center">{{ i.qualification }}</td>
+      <td align="center">&nbsp;{{ i.COMPANY.cname}}</td>
+      <td align="center">{{ i.no_of_vaccancy}}</td>
+      <td align="center">{{ i.last_date }}</td>
+{#      <td><a href="/">Jobs</a></td>#}
+    </tr>
+       {% endfor %}
+
+  </table>
+</form>
+</body>
+{% endblock %}

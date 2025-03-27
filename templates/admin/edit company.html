@@ -1,0 +1,76 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/edit_company_action" enctype="multipart/form-data" >
+  <table class="table table striped">
+{#      <tr>#}
+{#           <td colspan="2"><div align="center"> </div> </td>#}
+{#      </tr>#}
+    <tr>
+        <td><b>Name</b></td>
+      <td ><label>
+                  <input type="text" class="form-control" value="{{ v.cname }}" name="textfield" required pattern="[A-Z a-z.]{3,25}"/>
+
+
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Place</b></td>
+      <td ><label>
+                  <input type="text" class="form-control" value="{{ v.place }}" name="textfield2"required pattern="[A-Z a-z.]{3,25}" />
+
+
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Post</b></td>
+      <td><label>
+                  <input type="text" class="form-control" value=" {{ v.post }}" name="textfield4" required pattern="[A-Z a-z.]{3,25}"/>
+
+
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Pin</b></td>
+      <td colspan="2"><label>
+                  <input type="text" class="form-control" value="{{ v.pin }}"  name="textfield5" required pattern="[0-9]{6}"/>
+
+
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Phone</b></td>
+      <td colspan="2"><label>
+                  <input type="text" class="form-control" value="{{ v.phone }}" name="textfield6" required pattern="[6789][0-9]{9}"/>
+
+
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>EMail</b></td>
+      <td><label>
+                  <input type="email" class="form-control" value="{{ v.email }}" name="textfield7" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"/>
+
+
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Photo</b></td>
+      <td><label>
+          <img src="{{ v.image.url }}" width="100" height="100"/>
+        <input type="file" name="file" class="form-control"/>
+      </label></td>
+
+    </tr>
+    <tr>
+      <td colspan="3" align="center"><label>
+        <div >
+          <input type="submit" name="Submit" value="Update" class="btn btn-info"/>
+        </div>
+      </label></td>
+    </tr>
+  </table>
+  <label></label>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'staffindex.html' %}
+{% block body %}
+    <body>
+<form id="form1" name="form1" method="post" action="/add_college_action" enctype="multipart/form-data">
+    <table class="table table striped">
+        <tr>
+            <td>
+                <b>Name</b></td>
+            <td><label>
+                <input type="text" name="textfield" class="form-control" required/></label>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Image</b></td>
+            <td><label>
+                <input type="file" name="image" class="form-control" required/></label>
+            </td>
+        </tr>
+  <tr>
+    <td><b>Place</b></td>
+    <td><label>
+      <input type="text" name="textfield4" class="form-control" required/>
+    </label></td>
+  </tr>
+  <tr>
+    <td><b>Post</b></td>
+    <td><label>
+      <input type="text" name="textfield5" class="form-control" required/>
+    </label></td>
+  </tr>
+  <tr>
+    <td><b>Pin</b></td>
+    <td><label>
+        <input type="text" name="textfield6" class="form-control" required pattern="[0-9]{6}"/></label>
+    </td>
+  </tr>
+  <tr>
+    <td><b>Phone</b></td>
+    <td><label>
+      <input type="text" name="textfield7" class="form-control" required pattern="[6789][0-9]{9}"/>
+    </label></td>
+  </tr>
+  <tr>
+    <td><b>Email</b></td>
+    <td><label>
+      <input type="email" name="textfield10" class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"/>
+    </label></td>
+    <td><label></label></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><label>
+        <div >
+          <input type="submit" name="Submit" value="Add" class="btn btn-info"/>
+      </div>
+      </label></td>
+  </tr>
+</table></form>
+    </body>
+{% endblock %}

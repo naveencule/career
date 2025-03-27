@@ -1,0 +1,51 @@
+{% extends 'staffindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/edit_course_action">
+  <table class="table table striped">
+    <tr>
+      <td><b>College</b></td>
+      <td><label>
+        <select name="select" required class="form-control" >
+            {% for i in val %}
+            <option value="{{ i.id }}" {% if i.id ==  ids  %} selected {% endif %}>{{ i.name }}</option>
+           {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Course</b></td>
+      <td><label>
+        <input type="text" name="textfield2" class="form-control" value="{{ v.name }}" required/>
+      </label></td>
+    </tr>
+  <tr>
+      <td><b>Area</b></td>
+      <td><label>
+        <select name="select1" class="form-control" required>
+            <option value="Politics & Law" {% if  area   == "Politics & Law" %} selected {% endif %}>Social Science, Law</option>
+            <option value="Literature" {% if  area  == "Literature" %} selected {% endif %}>Literature</option>
+            <option value="Science & Technology" {% if  area  == "Science & Technology" %} selected {% endif %}>Science & Technology</option>
+            <option value="Medical Science" {% if  area  == "Medical Science" %} selected {% endif %}>Medical Science</option>
+            <option value="Commerce" {% if  area  == "Commerce" %} selected {% endif %}>Commerce</option>
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Details</b></td>
+      <td><label>
+        <input type="text" name="textfield23" class="form-control" value="{{ v.details }}" required/>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td colspan="2" align="center"><label>
+          <div >
+            <input type="submit" name="Submit" value="Update" class="btn btn-info" />
+          </div>
+        </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

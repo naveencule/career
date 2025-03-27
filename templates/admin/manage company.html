@@ -1,0 +1,42 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/search_company#about">
+  <table class="table table striped">
+      <tr><td></td>
+          <td align="right"><b>Name</b></td>
+      <td>
+        <input type="text" name="textfield" value="{{ nm }}" class="form-control"/>
+      </td>
+      <td align="left">
+        <input type="submit" name="Submit" value="Search" class="btn btn-warning"/>
+      </td>
+    </tr >
+    <tr class="table table-dark">
+      <td align="center">Sl no </td>
+      <td align="center">Name</td>
+      <td align="center">Address</td>
+      <td align="center">Phone</td>
+      <td align="center">Email</td>
+      <td align="center">&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td align="center">{{ forloop.counter}}&nbsp;</td>
+      <td  align="center"><img src="./media/{{ i.image }}" alt=""  width="100" height="100" id="f" /><br>{{ i.cname }}</td>
+      <td  align="center">{{ i.place }}<br>{{ i.post }}<br>{{ i.pin }}</td>
+      <td  align="center">{{ i.phone }}</td>
+      <td  align="center">{{ i.email }}</td>
+      <td align="center"><a href="edit_company/{{ i.id }}#about" class="btn btn-success">&nbsp;&nbsp;Edit&nbsp;&nbsp;</a><br><br>
+      <a href="delete_company/{{ i.LOGIN.id }}" class="btn btn-danger">Delete</a></td>
+
+    </tr>
+      {% endfor %}
+
+    <tr>
+      <td colspan="6"><div align="center"><a href="/add_company#about" class="btn btn-info">Add</a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

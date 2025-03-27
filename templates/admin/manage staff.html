@@ -1,0 +1,39 @@
+{% extends 'adminindex.html' %}
+{% block body %}<form id="form1" name="form1" method="post" action="/search_staff#about">
+  <table class="table table striped">
+    <tr><td></td>
+        <td align="right"><b>Name</b></td>
+     <td colspan="2">
+        <input type="text" name="a" value="{{ nm }}" class="form-control"/></td>
+
+      <td>
+        <input type="submit" name="Submit" value="Search" class="btn btn-warning"/>
+      </td><td></td>
+    </tr>
+
+    <tr class="table table-dark">
+      <td align="center">Sl no </td>
+      <td align="center">Name</td>
+      <td align="center">Address</td>
+      <td align="center">Phone</td>
+      <td align="center">Email</td>
+      <td align="center"></td>
+    </tr>
+      {% for i in staff_obj %}
+    <tr>
+      <td align="center">&nbsp;{{ forloop.counter }}</td>
+      <td align="center"><img src="./media/{{ i.image }}" width="100" height="100" /><br>{{ i.fname }} {{ i.lname }}</td>
+      <td align="center">{{ i.place }}<br> {{ i.post }} <br>{{ i.pin }}&nbsp;</td>
+      <td align="center">{{ i.phone }}</td>
+      <td align="center">&nbsp;{{ i.email }}</td>
+      <td align="center"><a href="/edit_staff/{{ i.id }}#about" class="btn btn-success">&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;</a><br><br>
+        <a href="/delete_staff/{{ i.LOGIN.id }}" class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+
+    <tr>
+      <td colspan="6"><div align="center"><a href="add_staff#about" class="btn btn-info">Add</a></div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
